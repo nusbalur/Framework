@@ -26,14 +26,14 @@ import com.training.utility.DriverNames;
 
 public class ForgotPasswordTest {
 
-	private static WebDriver driver;
-	private static String baseUrl;
-	private static ForgotPasswordPOM forgotPasswordPOM;
-	private static Properties properties;
-	private static ScreenShot screenShot;
+	private WebDriver driver;
+	private String baseUrl;
+	private ForgotPasswordPOM forgotPasswordPOM;
+	private Properties properties;
+	private ScreenShot screenShot;
 
 	@BeforeTest
-	public static void setUpBeforeClass() throws IOException {
+	public void setUpBeforeClass() throws IOException {
 		properties = new Properties();
 		FileInputStream inStream = new FileInputStream("./resources/others.properties");
 		properties.load(inStream);
@@ -53,7 +53,7 @@ public class ForgotPasswordTest {
 		driver.quit();
 	}
 
-	// Method to click Login link
+	//To click Login link
 	@Test(priority = 0)
 	public void loginLinkTest() throws InterruptedException {
 		forgotPasswordPOM.mousehoveraccount();
@@ -62,11 +62,11 @@ public class ForgotPasswordTest {
 		screenShot.captureScreenShot("ThirdA");
 	}
 
-	// Method to submit with email and password
+	//To submit with email and password
 	@Test(priority = 1)
 	public void loginTest() throws InterruptedException {
 		Thread.sleep(3000);
-		forgotPasswordPOM.email("manzoor@gmail.com");
+		forgotPasswordPOM.email("nusrat30@gmail.com");
 		forgotPasswordPOM.password("manzoor");
 		forgotPasswordPOM.loginButton();
 		screenShot.captureScreenShot("ThirdB");
@@ -76,14 +76,14 @@ public class ForgotPasswordTest {
 				.findElement(By.xpath("//p[contains(text(),'Enter the e-mail address associated with your acco')]"))
 				.getText();
 		assertEquals(expectedText, actualText);
-		screenShot.captureScreenShot("ThirdC");
 	}
 
-	// Method to enter registered email ID and continue
+	//To enter registered email ID and continue
 	@Test(priority = 2)
 	public void enterRegisteredEmail() throws InterruptedException {
 		Thread.sleep(3000);
-		forgotPasswordPOM.email("manzoor@gmail.com");
+		forgotPasswordPOM.email("nusrat30@gmail.com");
+		screenShot.captureScreenShot("ThirdC");
 		forgotPasswordPOM.continueButton();
 		screenShot.captureScreenShot("ThirdD");
 		String expectedText = "An email with a confirmation link has been sent your email address.";
