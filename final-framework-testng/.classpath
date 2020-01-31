@@ -20,5 +20,12 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.testng.TESTNG_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/01 Nusrat files/Selenium/Softwares/Log4j _ Extends Report/ExtendsReport/jar_files/bson-3.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/01 Nusrat files/Selenium/Softwares/Log4j _ Extends Report/ExtendsReport/jar_files/extentreports-2.41.2.jar"/>
+	<classpathentry kind="lib" path="C:/01 Nusrat files/Selenium/Softwares/Log4j _ Extends Report/ExtendsReport/jar_files/freemarker-2.3.23.jar"/>
+	<classpathentry kind="lib" path="C:/01 Nusrat files/Selenium/Softwares/Log4j _ Extends Report/ExtendsReport/jar_files/jsoup-1.8.3.jar"/>
+	<classpathentry kind="lib" path="C:/01 Nusrat files/Selenium/Softwares/Log4j _ Extends Report/ExtendsReport/jar_files/mongodb-driver-3.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/01 Nusrat files/Selenium/Softwares/Log4j _ Extends Report/ExtendsReport/jar_files/mongodb-driver-core-3.0.4.jar"/>
+	<classpathentry kind="lib" path="C:/01 Nusrat files/Selenium/Softwares/Log4j _ Extends Report/ExtendsReport/jar_files/sqlite-jdbc-3.8.11.1.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
