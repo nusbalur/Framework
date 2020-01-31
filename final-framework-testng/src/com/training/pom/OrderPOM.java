@@ -36,6 +36,9 @@ public class OrderPOM {
 	@FindBy(xpath = "//a[@href = 'http://retailm1.upskills.in/account/order']")
 	private WebElement ordersLink;
 	
+	@FindBy(xpath = "//a[@href= 'http://retailm1.upskills.in/account/order/info?order_id=211']")
+	private WebElement view;
+	
 	public void mousehoveraccount() {
 
 		Actions actions = new Actions(driver);
@@ -63,5 +66,8 @@ public class OrderPOM {
 		public void ordersLink() {
 		this.ordersLink.click();
 	}
+		public void view() {
+			this.view.click();
+		}
 	
 }

@@ -27,14 +27,14 @@ import com.training.utility.DriverNames;
 
 public class OrderTest {
 
-	private static WebDriver driver;
-	private static String baseUrl;
-	private static OrderPOM orderPOM;
-	private static Properties properties;
-	private static ScreenShot screenShot;
+	private WebDriver driver;
+	private String baseUrl;
+	private OrderPOM orderPOM;
+	private Properties properties;
+	private ScreenShot screenShot;
 
 	@BeforeTest
-	public static void setUpBeforeClass() throws IOException {
+	public void setUpBeforeClass() throws IOException {
 		properties = new Properties();
 		FileInputStream inStream = new FileInputStream("./resources/others.properties");
 		properties.load(inStream);
@@ -44,17 +44,17 @@ public class OrderTest {
 		screenShot = new ScreenShot(driver);
 		// open the browser
 		driver.get(baseUrl);
-		System.out.println("Executing before method");
+		System.out.println("Executing Before method");
 	}
 
 	@AfterTest
 	public void tearDown() throws Exception {
 		Thread.sleep(1000);
-		System.out.println("Executing after method");
+		System.out.println("Executing After method");
 		driver.quit();
 	}
 
-	// Method to click Login link
+	//To click Login link
 	@Test(priority = 0)
 	public void loginLinkTest() throws InterruptedException {
 		orderPOM.mousehoveraccount();
@@ -62,18 +62,18 @@ public class OrderTest {
 		orderPOM.clicklogin();
 	}
 
-	// Method to submit with email and password
+	//To submit with email and password
 	@Test(priority = 1)
 	public void loginTest() throws InterruptedException {
 		Thread.sleep(3000);
-		orderPOM.email("myself@gmail.com");
+		orderPOM.email("nusrat30@gmail.com");
 		orderPOM.password("12345678");
 		screenShot.captureScreenShot("FourthA");
 		orderPOM.loginButton();
 		screenShot.captureScreenShot("FourthB");
 	}
 
-	// Method to hover over Account icon and click My Orders link
+	//To hover over Account icon and click My Orders link
 	@Test(priority = 2)
 	public void ordersTest() throws InterruptedException {
 		Thread.sleep(3000);
@@ -81,9 +81,17 @@ public class OrderTest {
 		Thread.sleep(1000);
 		screenShot.captureScreenShot("FourthC");
 		orderPOM.ordersLink();
-		String expectedText = "You have not made any previous orders!";
-		String actualText = driver.findElement(By.xpath("//p[@class='tb_empty']")).getText();
+		// Viewing the items in Orders list and assertion the text displayed
+		String expectedText = "Order ID";
+		String actualText = driver.findElement(By.xpath("//td[contains(text(),'Order ID')]")).getText();
 		assertEquals(expectedText, actualText);
 		screenShot.captureScreenShot("FourthD");
+		// Click on View
+		orderPOM.view();
+		// Assertion of text displayed under Order Details
+		String expected = "Order Details";
+		String actual = driver.findElement(By.xpath("//td[contains(text(),'Order Details')]")).getText();
+		assertEquals(expected, actual);
+		screenShot.captureScreenShot("FourthE");
 	}
 }
