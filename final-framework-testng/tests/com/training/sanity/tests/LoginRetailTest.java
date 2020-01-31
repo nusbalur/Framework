@@ -25,14 +25,14 @@ import com.training.utility.DriverNames;
 
 public class LoginRetailTest {
 
-	private static WebDriver driver;
-	private static String baseUrl;
-	private static LoginRetailPOM loginRetailPOM;
-	private static Properties properties;
-	private static ScreenShot screenShot;
+	private WebDriver driver;
+	private String baseUrl;
+	private LoginRetailPOM loginRetailPOM;
+	private Properties properties;
+	private ScreenShot screenShot;
 
 	@BeforeTest
-	public static void setUpBeforeClass() throws IOException {
+	public void setUpBeforeClass() throws IOException {
 		properties = new Properties();
 		FileInputStream inStream = new FileInputStream("./resources/others.properties");
 		properties.load(inStream);
@@ -42,36 +42,35 @@ public class LoginRetailTest {
 		screenShot = new ScreenShot(driver);
 		// open the browser
 		driver.get(baseUrl);
-		System.out.println("Executing before method");
+		System.out.println("Executing Before method");
 	}
 
 	@AfterTest
 	public void tearDown() throws Exception {
 		Thread.sleep(1000);
-		System.out.println("Executing after method");
+		System.out.println("Executing After method");
 		driver.quit();
 	}
 
-	//Method to click Login link
-	@Test(priority=0)
-	public void loginTest() throws InterruptedException{
+	// To click Login link
+	@Test(priority = 0)
+	public void clickLoginTest() throws InterruptedException {
 		loginRetailPOM.mousehoveraccount();
-	Thread.sleep(3000);
-	loginRetailPOM.clicklogin();
-	screenShot.captureScreenShot("SecondA");
+		Thread.sleep(3000);
+		loginRetailPOM.clicklogin();
 	}
-	
-	//Method to submit with email and password
-	@Test(priority=1)
+
+	// To submit with email and password
+	@Test(priority = 1)
 	public void LoginTest() throws InterruptedException {
 		Thread.sleep(3000);
-		loginRetailPOM.email("myself@gmail.com");
+		loginRetailPOM.email("nusrat30@gmail.com");
 		loginRetailPOM.password("12345678");
+		screenShot.captureScreenShot("SecondA");
 		loginRetailPOM.loginButton();
 		screenShot.captureScreenShot("SecondB");
 		String expectedText = "My Account";
 		String actualText = driver.findElement(By.xpath("//h2[contains(text(),'My Account')]")).getText();
 		assertEquals(expectedText, actualText);
 	}
-	}
-
+}

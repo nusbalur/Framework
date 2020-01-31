@@ -30,6 +30,7 @@ public class LoginRetailPOM {
 	@FindBy(xpath = "//input[@class='btn btn-primary']")
 	private WebElement loginButton;
 
+	//To mouse hover the Account icon
 	public void mousehoveraccount() {
 
 		Actions actions = new Actions(driver);
