@@ -45,13 +45,13 @@ public class EditAccountInfoTest {
 		screenShot = new ScreenShot(driver);
 		// open the browser
 		driver.get(baseUrl);
-		System.out.println("Executing before method");
+		System.out.println("Executing Before method");
 	}
 
 	@AfterTest
 	public void tearDown() throws Exception {
 		Thread.sleep(1000);
-		System.out.println("Executing after method");
+		System.out.println("Executing After method");
 		driver.quit();
 	}
 
