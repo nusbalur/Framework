@@ -70,7 +70,7 @@ public class RegisterPOM {
 	@FindBy(id = "input-confirm")
 	private WebElement confirmPassword;
 
-	// Newsletter, privacy and continue
+	// Subscribe, Privacy and continue
 
 	@FindBy(xpath = "//label[contains(text(),'No')]")
 	private WebElement subscribe;
@@ -81,6 +81,7 @@ public class RegisterPOM {
 	@FindBy(xpath = "//input[@class='btn btn-primary']")
 	private WebElement continueButton;
 
+	//Mouse hover over the Account icon
 	public void mousehoveraccount() {
 
 		Actions actions = new Actions(driver);
@@ -94,9 +95,6 @@ public class RegisterPOM {
 	public void clickregister() throws InterruptedException {
 		Thread.sleep(3000);
 		this.register.click();
-		String expectedText = "If you already have an account with us, please login at the ";
-		String actualText = driver.findElement(By.xpath("//p[contains(text(),'If you already have an account with us, please log')]")).getText();
-		assertEquals(expectedText, actualText);
 	}
 
 	public void firstName(String firstName) {
@@ -161,6 +159,7 @@ public class RegisterPOM {
 		this.confirmPassword.sendKeys(confirmPassword);
 	}
 
+	//Checking if the Radio button is displayed, enabled and selected by default
 	public void selectSubscribe() {
 		boolean radiobuttonIsDisplayed = subscribe.isDisplayed();
 		boolean radiobuttonIsEnabled = subscribe.isEnabled();
@@ -182,6 +181,7 @@ public class RegisterPOM {
 		}
 	}
 
+	//Checking if the Checkbox is displayed, enabled and selected by default
 	public void selectPrivacy() {
 		boolean ckIsChkd = privacy.isSelected();
 		boolean ckIsEnabled = privacy.isEnabled();
@@ -193,7 +193,7 @@ public class RegisterPOM {
 				System.out.println("Checkbox is enabled");
 				if (!ckIsChkd) {
 					privacy.click();
-					System.out.println("Checkbox was not checked by default. But now its checked");
+					System.out.println("Checkbox was not checked by default. Now it has been checked");
 				}
 			}
 		}

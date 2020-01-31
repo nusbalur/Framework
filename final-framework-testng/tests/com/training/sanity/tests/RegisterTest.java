@@ -24,68 +24,80 @@ import com.training.utility.DriverNames;
 
 public class RegisterTest {
 
-	private static WebDriver driver;
-	private static String baseUrl;
-	private static RegisterPOM registerPOM;
-	private static Properties properties;
-	private static ScreenShot screenShot;
+	private WebDriver driver;
+	private String baseUrl;
+	private RegisterPOM registerPOM;
+	private Properties properties;
+	private ScreenShot screenShot;
 
 	@BeforeTest
-	public static void setUpBeforeClass() throws IOException {
+	public void setUpBeforeClass() throws IOException {
 		properties = new Properties();
 		FileInputStream inStream = new FileInputStream("./resources/others.properties");
 		properties.load(inStream);
 		driver = DriverFactory.getDriver(DriverNames.CHROME);
-		registerPOM = new RegisterPOM(driver); 
+		registerPOM = new RegisterPOM(driver);
 		baseUrl = properties.getProperty("baseURL");
-		screenShot = new ScreenShot(driver); 
-		// open the browser 
+		screenShot = new ScreenShot(driver);
+		// open the browser
 		driver.get(baseUrl);
-		System.out.println("Executing before method");
+		System.out.println("Executing Before method");
 	}
 
 	@AfterTest
 	public void tearDown() throws Exception {
 		Thread.sleep(1000);
-		System.out.println("Executing after method");
+		System.out.println("Executing After method");
 		driver.quit();
 	}
-	@Test(priority=0)
-	public void newRegisterTest() throws InterruptedException{
-	registerPOM.mousehoveraccount();
-	Thread.sleep(3000);
-	registerPOM.clicklogin();
-	registerPOM.clickregister();
+
+	@Test(priority = 0)
+	public void newRegisterTest() throws InterruptedException {
+		// Hover over Account icon
+		registerPOM.mousehoveraccount();
+		Thread.sleep(3000);
+		// Click on login/register link and click on Register button
+		registerPOM.clicklogin();
+		registerPOM.clickregister();
 	}
-	
-	@Test(priority=1)
+
+	@Test(priority = 1)
 	public void validRegistration() throws InterruptedException {
 		Thread.sleep(3000);
+		// Assertion to check whether the Registration page has successfully launched
+		String expectedText = "If you already have an account with us, please login at the login page.";
+		String actualText = driver
+				.findElement(By.xpath("//p[contains(text(),'If you already')]"))
+				.getText();
+		assertEquals(expectedText, actualText);
+		// Entering values in the fields for Registration
 		registerPOM.firstName("manzoor");
 		registerPOM.lastName("mehadi");
-		registerPOM.email("manzoormehadi46@gmail.com");
+		registerPOM.email("manzoormehadi59@gmail.com");
 		registerPOM.telephone("9876543210");
+		screenShot.captureScreenShot("FirstA");
 		registerPOM.address1("yeshwanthapur");
 		registerPOM.address2("bangalore");
-		screenShot.captureScreenShot("FirstA");
 		registerPOM.city("bangalore");
-		registerPOM.postCode("560022");	
+		registerPOM.postCode("560022");
 		registerPOM.country("India");
 		registerPOM.state("Karnataka");
+		screenShot.captureScreenShot("FirstB");
 		registerPOM.password("manzoor1");
 		registerPOM.confirmPassword("manzoor1");
 		System.out.println("Selection of subscribe button");
 		registerPOM.selectSubscribe();
 		System.out.println("Checking the privacy check box");
 		registerPOM.selectPrivacy();
-		screenShot.captureScreenShot("FirstB");
-		System.out.println("Clicking continue button");
-		registerPOM.continueButton(); 
-		String expected = "Congratulations! Your new account has been successfully created!";
-		String actual = driver.findElement(By.xpath("//p[contains(text(),'Congratulations! Your new account has been success')]")).getText();
-		assertEquals(expected, actual);
 		screenShot.captureScreenShot("FirstC");
+		System.out.println("Clicking continue button");
+		registerPOM.continueButton();
+		// Assertion to check whether the required page is successfully launched
+		String expected = "Congratulations! Your new account has been successfully created!";
+		String actual = driver
+				.findElement(By.xpath("//p[contains(text(),'Congratulations! Your new account has been success')]"))
+				.getText();
+		assertEquals(expected, actual);
+		screenShot.captureScreenShot("FirstD");
 	}
 }
-	
-
