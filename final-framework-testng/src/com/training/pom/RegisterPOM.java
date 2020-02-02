@@ -72,7 +72,7 @@ public class RegisterPOM {
 
 	// Subscribe, Privacy and continue
 
-	@FindBy(xpath = "//label[contains(text(),'No')]")
+	@FindBy(xpath = "//input[@name='newsletter'][@value='0']")
 	private WebElement subscribe;
 
 	@FindBy(xpath = "//input[@name='agree']")
@@ -195,6 +195,8 @@ public class RegisterPOM {
 					privacy.click();
 					System.out.println("Checkbox was not checked by default. Now it has been checked");
 				}
+				else 
+					System.out.println("Checkbox is already selected");
 			}
 		}
 	}
