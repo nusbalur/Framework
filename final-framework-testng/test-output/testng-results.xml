@@ -2,28 +2,28 @@
 <testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="48518" started-at="2020-01-31T20:16:11 IST" finished-at="2020-01-31T20:16:59 IST">
+  <suite name="Default suite" duration-ms="51971" started-at="2020-02-02T15:35:47 IST" finished-at="2020-02-02T15:36:39 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="48518" started-at="2020-01-31T20:16:11 IST" finished-at="2020-01-31T20:16:59 IST">
-      <class name="com.training.sanity.tests.LoginRetailTest">
-        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.LoginRetailTest@aad32e3b]" name="setUpBeforeClass" is-config="true" duration-ms="27897" started-at="2020-01-31T20:16:11 IST" finished-at="2020-01-31T20:16:39 IST">
+    <test name="Default test" duration-ms="51971" started-at="2020-02-02T15:35:47 IST" finished-at="2020-02-02T15:36:39 IST">
+      <class name="com.training.sanity.tests.RegisterTest">
+        <test-method status="PASS" signature="setUpBeforeClass()[pri:0, instance:com.training.sanity.tests.RegisterTest@3e85e7e4]" name="setUpBeforeClass" is-config="true" duration-ms="21181" started-at="2020-02-02T15:35:47 IST" finished-at="2020-02-02T15:36:08 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpBeforeClass -->
-        <test-method status="PASS" signature="loginTest()[pri:0, instance:com.training.sanity.tests.LoginRetailTest@aad32e3b]" name="loginTest" duration-ms="7801" started-at="2020-01-31T20:16:39 IST" finished-at="2020-01-31T20:16:47 IST">
+        <test-method status="PASS" signature="newRegisterTest()[pri:0, instance:com.training.sanity.tests.RegisterTest@3e85e7e4]" name="newRegisterTest" duration-ms="14360" started-at="2020-02-02T15:36:08 IST" finished-at="2020-02-02T15:36:22 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginTest -->
-        <test-method status="PASS" signature="LoginTest()[pri:1, instance:com.training.sanity.tests.LoginRetailTest@aad32e3b]" name="LoginTest" duration-ms="10803" started-at="2020-01-31T20:16:47 IST" finished-at="2020-01-31T20:16:57 IST">
+        </test-method> <!-- newRegisterTest -->
+        <test-method status="PASS" signature="validRegistration()[pri:1, instance:com.training.sanity.tests.RegisterTest@3e85e7e4]" name="validRegistration" duration-ms="13586" started-at="2020-02-02T15:36:22 IST" finished-at="2020-02-02T15:36:36 IST">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- LoginTest -->
-        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.LoginRetailTest@aad32e3b]" name="tearDown" is-config="true" duration-ms="1930" started-at="2020-01-31T20:16:57 IST" finished-at="2020-01-31T20:16:59 IST">
+        </test-method> <!-- validRegistration -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.training.sanity.tests.RegisterTest@3e85e7e4]" name="tearDown" is-config="true" duration-ms="2777" started-at="2020-02-02T15:36:36 IST" finished-at="2020-02-02T15:36:39 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
-      </class> <!-- com.training.sanity.tests.LoginRetailTest -->
+      </class> <!-- com.training.sanity.tests.RegisterTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
